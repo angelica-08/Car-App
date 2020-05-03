@@ -11,10 +11,9 @@
 </template>
 
 <script lang="ts">
-import { Vue } from 'vue-property-decorator';
+import {Vue}  from 'vue-property-decorator';
 
-
-export default class AppCard extends Vue {
+export default class AppCarTable extends Vue {
 
 }
 </script>
