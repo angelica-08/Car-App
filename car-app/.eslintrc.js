@@ -1,29 +1,42 @@
 module.exports = {
   root: true,
   env: {
-    node: true,
+      node: true,
   },
   extends: [
-    'plugin:vue/essential',
-    '@vue/airbnb',
-    '@vue/typescript/recommended',
+      "plugin:vue/essential",
+      "@vue/airbnb",
   ],
-  parserOptions: {
-    ecmaVersion: 2020,
-  },
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+      "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
+      "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+      quotes: ["error", "double"],
+      semi: ["error", "always"],
+      "max-len": [2, {
+          code: 250,
+          tabWidth: 4,
+          ignoreUrls: true,
+      }],
+      indent: ["error", 4, {
+          SwitchCase: 1,
+      }],
+      "vue/html-indent": ["error", 4, {
+          alignAttributesVertically: true,
+      }],
+      "import/extensions": ["error", "never"],
+      "import/newline-after-import": 0,
+  },
+  parserOptions: {
+      parser: "babel-eslint",
   },
   overrides: [
-    {
-      files: [
-        '**/__tests__/*.{j,t}s?(x)',
-        '**/tests/unit/**/*.spec.{j,t}s?(x)',
-      ],
-      env: {
-        mocha: true,
+      {
+          files: [
+              "**/__tests__/*.{j,t}s?(x)",
+          ],
+          env: {
+              mocha: true,
+          },
       },
-    },
   ],
 };
